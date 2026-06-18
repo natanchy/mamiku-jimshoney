@@ -27,7 +27,7 @@ import {
 } from "lucide-react";
 
 // ─── DATA PRODUK ──────────────────────────────────────────────────────────────
-const WHATSAPP_NUMBER = "6282310087101";
+const WHATSAPP_NUMBER = "6282330313865";
 const PRODUCTS_PER_PAGE = 8;
 
 const ALL_PRODUCTS = [
@@ -875,12 +875,12 @@ export default function App() {
               <li className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-pink-400 flex-shrink-0" />
                 <a
-                  href={`https://wa.me/${82310087101}`}
+                  href={`https://wa.me/${WHATSAPP_NUMBER}`}
                   className="hover:text-pink-400 transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  +62 823-1008-7101
+                  +62 823-3031-3865
                 </a>
               </li>
               <li className="flex items-center gap-2">
