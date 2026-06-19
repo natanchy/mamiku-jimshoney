@@ -48,8 +48,10 @@ const formatRupiah = (num) =>
     minimumFractionDigits: 0,
   }).format(num);
 
-const getDiscount = (price, original) =>
-  Math.round(((original - price) / original) * 100);
+const getDiscount = (price, original) => {
+  if (!original || isNaN(Number(original)) || Number(original) <= price) return 0;
+  return Math.round(((original - price) / original) * 100);
+};
 
 const makeWALink = (name, price) => {
   const msg = `Halo Kak Admin Mamiku JimsHoney! Saya tertarik untuk memesan produk original *${name}* seharga *${formatRupiah(price)}*. Apakah saat ini ready?`;
@@ -169,9 +171,11 @@ function ProductCard({ product, onAddToCart, onOpenQuickView }) {
           </span>
         )}
         {/* Diskon */}
-        <span className="absolute top-2 right-2 bg-rose-500 text-white text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full shadow">
-          -{discount}%
-        </span>
+        {discount > 0 && (
+          <span className="absolute top-2 right-2 bg-rose-500 text-white text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full shadow">
+            -{discount}%
+          </span>
+        )}
         {/* Status Badge */}
         {product.status === "ready" ? (
           <span className="absolute top-[34px] right-2 bg-emerald-50 text-emerald-700 border border-emerald-200 text-[8px] sm:text-[9px] font-bold px-1.5 py-0.5 rounded-md shadow-sm flex items-center gap-1 backdrop-blur-sm bg-white/70">
@@ -220,9 +224,11 @@ function ProductCard({ product, onAddToCart, onOpenQuickView }) {
           <span className="font-bold text-pink-600 text-xs sm:text-sm">
             {formatRupiah(product.price)}
           </span>
-          <span className="text-[9px] sm:text-[10px] text-gray-400 line-through">
-            {formatRupiah(product.originalPrice)}
-          </span>
+          {product.originalPrice && Number(product.originalPrice) > product.price && (
+            <span className="text-[9px] sm:text-[10px] text-gray-400 line-through">
+              {formatRupiah(product.originalPrice)}
+            </span>
+          )}
         </div>
 
         {/* Tombol Pilih Warna */}
@@ -923,12 +929,16 @@ export default function App() {
                   <span className="text-lg md:text-xl font-black text-pink-600">
                     {formatRupiah(activeProduct.price)}
                   </span>
-                  <span className="text-xs text-gray-400 line-through">
-                    {formatRupiah(activeProduct.originalPrice)}
-                  </span>
-                  <span className="text-[10px] bg-rose-500 text-white font-bold px-2 py-0.5 rounded-full shadow-sm">
-                    -{getDiscount(activeProduct.price, activeProduct.originalPrice)}% OFF
-                  </span>
+                  {activeProduct.originalPrice && Number(activeProduct.originalPrice) > activeProduct.price && (
+                    <>
+                      <span className="text-xs text-gray-400 line-through">
+                        {formatRupiah(activeProduct.originalPrice)}
+                      </span>
+                      <span className="text-[10px] bg-rose-500 text-white font-bold px-2 py-0.5 rounded-full shadow-sm">
+                        -{getDiscount(activeProduct.price, activeProduct.originalPrice)}% OFF
+                      </span>
+                    </>
+                  )}
                 </div>
 
                 {/* Status Stok */}
