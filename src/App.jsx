@@ -24,6 +24,8 @@ import {
   Minus,
   Trash2,
   X,
+  Palette,
+  Hourglass,
 } from "lucide-react";
 
 // ─── DATA PRODUK ──────────────────────────────────────────────────────────────
@@ -42,9 +44,14 @@ const ALL_PRODUCTS = [
     badge: "Best Seller",
     description:
       "Tas tote elegan berbahan canvas premium dengan lapisan dalam suede. Desain minimalis cocok untuk kerja dan jalan-jalan.",
-    colors: ["#c8a06e", "#1a1a1a", "#e8d5c0"],
+    colors: [
+      { name: "Camel", hex: "#c8a06e" },
+      { name: "Black", hex: "#1a1a1a" },
+      { name: "Khaki", hex: "#e8d5c0" }
+    ],
     emoji: "👜",
     bg: "from-rose-100 to-pink-50",
+    status: "ready",
   },
   {
     id: 2,
@@ -57,9 +64,14 @@ const ALL_PRODUCTS = [
     badge: "New Arrival",
     description:
       "Handbag mewah dengan detail tali rantai gold dan bahan PU leather berkualitas. Cocok untuk tampilan formal maupun kasual.",
-    colors: ["#f5c6d0", "#8b6f8e", "#f9e4e8"],
+    colors: [
+      { name: "Sakura Pink", hex: "#f5c6d0" },
+      { name: "Mauve", hex: "#8b6f8e" },
+      { name: "Soft Pearl", hex: "#f9e4e8" }
+    ],
     emoji: "💼",
     bg: "from-fuchsia-100 to-rose-50",
+    status: "po",
   },
   {
     id: 3,
@@ -72,9 +84,14 @@ const ALL_PRODUCTS = [
     badge: "Best Seller",
     description:
       "Sling bag compact dengan tali adjustable. Muat banyak barang bawaan harian: HP, dompet, pouch.",
-    colors: ["#e8c4b8", "#6b4f3a", "#f5ddd5"],
+    colors: [
+      { name: "Peach", hex: "#e8c4b8" },
+      { name: "Brown", hex: "#6b4f3a" },
+      { name: "Cream", hex: "#f5ddd5" }
+    ],
     emoji: "🎒",
     bg: "from-orange-100 to-rose-50",
+    status: "ready",
   },
   {
     id: 4,
@@ -87,9 +104,14 @@ const ALL_PRODUCTS = [
     badge: "Promo",
     description:
       "Tote bag berukuran besar dengan bahan twill yang kuat. Dilengkapi kantong dalam berzipper anti-lusuh.",
-    colors: ["#d4b8e0", "#7a5c8a", "#ede0f5"],
+    colors: [
+      { name: "Lilac", hex: "#d4b8e0" },
+      { name: "Purple", hex: "#7a5c8a" },
+      { name: "Soft Lavender", hex: "#ede0f5" }
+    ],
     emoji: "🛍️",
     bg: "from-purple-100 to-pink-50",
+    status: "po",
   },
   {
     id: 5,
@@ -102,9 +124,14 @@ const ALL_PRODUCTS = [
     badge: "Best Seller",
     description:
       "Dompet panjang wanita dengan 12 slot kartu, 2 kantong uang, dan resleting koin. Bahan PU leather premium.",
-    colors: ["#c8a06e", "#f5e6d3", "#1a1a1a"],
+    colors: [
+      { name: "Gold", hex: "#c8a06e" },
+      { name: "Beige", hex: "#f5e6d3" },
+      { name: "Black", hex: "#1a1a1a" }
+    ],
     emoji: "👛",
     bg: "from-amber-100 to-rose-50",
+    status: "ready",
   },
   {
     id: 6,
@@ -117,9 +144,14 @@ const ALL_PRODUCTS = [
     badge: "New Arrival",
     description:
       "Dompet mini clutch serbaguna, bisa juga dijadikan coin purse. Hadir dalam berbagai pilihan warna pastel.",
-    colors: ["#f9c6d0", "#fce4ec", "#f48fb1"],
+    colors: [
+      { name: "Baby Pink", hex: "#f9c6d0" },
+      { name: "Rose Petal", hex: "#fce4ec" },
+      { name: "Magenta", hex: "#f48fb1" }
+    ],
     emoji: "💰",
     bg: "from-pink-100 to-fuchsia-50",
+    status: "po",
   },
   {
     id: 7,
@@ -132,9 +164,14 @@ const ALL_PRODUCTS = [
     badge: null,
     description:
       "Card holder ramping muat 6 kartu ATM/KTP. Desain super slim masuk saku celana tanpa bikin menonjol.",
-    colors: ["#2c2c2c", "#c8a06e", "#f5f5f5"],
+    colors: [
+      { name: "Charcoal", hex: "#2c2c2c" },
+      { name: "Tan", hex: "#c8a06e" },
+      { name: "White", hex: "#f5f5f5" }
+    ],
     emoji: "💳",
     bg: "from-slate-100 to-pink-50",
+    status: "ready",
   },
   {
     id: 8,
@@ -147,9 +184,14 @@ const ALL_PRODUCTS = [
     badge: "Promo",
     description:
       "Dompet bifold berbahan velvet halus dengan detail aksen gold. Tampil mewah dengan harga terjangkau.",
-    colors: ["#6b4a7a", "#d4b8e0", "#4a2c5a"],
+    colors: [
+      { name: "Deep Plum", hex: "#6b4a7a" },
+      { name: "Light Lavender", hex: "#d4b8e0" },
+      { name: "Dark Purple", hex: "#4a2c5a" }
+    ],
     emoji: "🪄",
     bg: "from-violet-100 to-pink-50",
+    status: "po",
   },
   {
     id: 9,
@@ -162,9 +204,14 @@ const ALL_PRODUCTS = [
     badge: "Best Seller",
     description:
       "Jam tangan analog dial bunga dengan tali mesh stainless steel gold. Elegan dan tahan lama, cocok untuk semua acara.",
-    colors: ["#d4a96a", "#c0c0c0", "#f5e6d3"],
+    colors: [
+      { name: "Gold Mesh", hex: "#d4a96a" },
+      { name: "Silver", hex: "#c0c0c0" },
+      { name: "Champagne", hex: "#f5e6d3" }
+    ],
     emoji: "⌚",
     bg: "from-yellow-100 to-rose-50",
+    status: "ready",
   },
   {
     id: 10,
@@ -177,9 +224,14 @@ const ALL_PRODUCTS = [
     badge: "Limited",
     description:
       "Jam tangan rose gold limited edition dengan kristal pada bezel. Tali kulit genuine leather warna mauve.",
-    colors: ["#e8c5b0", "#a67c52", "#f0d5c5"],
+    colors: [
+      { name: "Rose Gold", hex: "#e8c5b0" },
+      { name: "Brown Leather", hex: "#a67c52" },
+      { name: "Ivory", hex: "#f0d5c5" }
+    ],
     emoji: "✨",
     bg: "from-rose-100 to-fuchsia-50",
+    status: "po",
   },
   {
     id: 11,
@@ -192,9 +244,14 @@ const ALL_PRODUCTS = [
     badge: "New Arrival",
     description:
       "Jam tangan minimalis dengan dial bersih tanpa angka. Tali silikon nyaman, ringan, dan water-resistant.",
-    colors: ["#f5f5f5", "#1a1a1a", "#e8e8e8"],
+    colors: [
+      { name: "White Silicon", hex: "#f5f5f5" },
+      { name: "Black Silicon", hex: "#1a1a1a" },
+      { name: "Silver Gray", hex: "#e8e8e8" }
+    ],
     emoji: "🌙",
     bg: "from-gray-100 to-pink-50",
+    status: "ready",
   },
   {
     id: 12,
@@ -207,9 +264,14 @@ const ALL_PRODUCTS = [
     badge: "Promo",
     description:
       "Jam tangan cantik dengan detail mutiara pada tali. Tampilan feminin yang sempurna untuk hari spesial.",
-    colors: ["#f9e4e8", "#c8a0a8", "#fff0f3"],
+    colors: [
+      { name: "Pearl White", hex: "#f9e4e8" },
+      { name: "Rose Gold", hex: "#c8a0a8" },
+      { name: "Pink Pearl", hex: "#fff0f3" }
+    ],
     emoji: "🌸",
     bg: "from-pink-100 to-rose-50",
+    status: "po",
   },
   {
     id: 13,
@@ -222,9 +284,14 @@ const ALL_PRODUCTS = [
     badge: "Promo",
     description:
       "Jam tangan cantik dengan detail mutiara pada tali. Tampilan feminin yang sempurna untuk hari spesial.",
-    colors: ["#f9e4e8", "#c8a0a8", "#fff0f3"],
+    colors: [
+      { name: "Pearl White", hex: "#f9e4e8" },
+      { name: "Rose Gold", hex: "#c8a0a8" },
+      { name: "Pink Pearl", hex: "#fff0f3" }
+    ],
     emoji: "🌸",
     bg: "from-pink-100 to-rose-50",
+    status: "po",
   },
   {
     id: 14,
@@ -237,9 +304,14 @@ const ALL_PRODUCTS = [
     badge: "Promo",
     description:
       "Jam tangan cantik dengan detail mutiara pada tali. Tampilan feminin yang sempurna untuk hari spesial.",
-    colors: ["#f9e4e8", "#c8a0a8", "#fff0f3"],
+    colors: [
+      { name: "Pearl White", hex: "#f9e4e8" },
+      { name: "Rose Gold", hex: "#c8a0a8" },
+      { name: "Pink Pearl", hex: "#fff0f3" }
+    ],
     emoji: "🌸",
     bg: "from-pink-100 to-rose-50",
+    status: "po",
   },
   {
     id: 15,
@@ -252,9 +324,14 @@ const ALL_PRODUCTS = [
     badge: "Promo",
     description:
       "Jam tangan cantik dengan detail mutiara pada tali. Tampilan feminin yang sempurna untuk hari spesial.",
-    colors: ["#f9e4e8", "#c8a0a8", "#fff0f3"],
+    colors: [
+      { name: "Pearl White", hex: "#f9e4e8" },
+      { name: "Rose Gold", hex: "#c8a0a8" },
+      { name: "Pink Pearl", hex: "#fff0f3" }
+    ],
     emoji: "🌸",
     bg: "from-pink-100 to-rose-50",
+    status: "po",
   },
   {
     id: 16,
@@ -267,9 +344,14 @@ const ALL_PRODUCTS = [
     badge: "Promo",
     description:
       "Jam tangan cantik dengan detail mutiara pada tali. Tampilan feminin yang sempurna untuk hari spesial.",
-    colors: ["#f9e4e8", "#c8a0a8", "#fff0f3"],
+    colors: [
+      { name: "Pearl White", hex: "#f9e4e8" },
+      { name: "Rose Gold", hex: "#c8a0a8" },
+      { name: "Pink Pearl", hex: "#fff0f3" }
+    ],
     emoji: "🌸",
     bg: "from-pink-100 to-rose-50",
+    status: "po",
   },
 ];
 
@@ -294,6 +376,28 @@ const getDiscount = (price, original) =>
 const makeWALink = (name, price) => {
   const msg = `Halo Kak Admin Mamiku JimsHoney! Saya tertarik untuk memesan produk original *${name}* seharga *${formatRupiah(price)}*. Apakah saat ini ready?`;
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+};
+
+const getProductSpecs = (product) => {
+  if (product.category === "tas") {
+    return {
+      bahan: "Premium Canvas / PU Leather (Lapisan Suede)",
+      dimensi: "28 x 12 x 20 cm",
+      fitur: "Tali Panjang (Adjustable), Kompartemen Luas, Kantong Zipper"
+    };
+  } else if (product.category === "dompet") {
+    return {
+      bahan: "Premium PU Leather Grade A",
+      dimensi: "19 x 2.5 x 9.5 cm",
+      fitur: "12 Slot Kartu, Sekat Uang Kertas, Sekat Koin Zipper"
+    };
+  } else {
+    return {
+      bahan: "Strap Stainless Steel Mesh / Kulit Sintetis",
+      dimensi: "Dial 32 mm, Panjang Strap 21 cm",
+      fitur: "Water Resistant 3 ATM, Quartz Movement, Crystal Bezel"
+    };
+  }
 };
 
 // ─── SUB-KOMPONEN ─────────────────────────────────────────────────────────────
@@ -324,7 +428,7 @@ function ProductIllustration({ product }) {
           <span
             key={i}
             className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full border border-white/60 shadow"
-            style={{ backgroundColor: c }}
+            style={{ backgroundColor: c.hex }}
           />
         ))}
       </div>
@@ -357,7 +461,7 @@ function StarRating({ rating, reviews, compact }) {
 }
 
 /** Kartu produk tunggal */
-function ProductCard({ product, onAddToCart }) {
+function ProductCard({ product, onAddToCart, onOpenQuickView }) {
   const discount = getDiscount(product.price, product.originalPrice);
 
   const badgeColor =
@@ -370,11 +474,13 @@ function ProductCard({ product, onAddToCart }) {
           : product.badge === "Limited"
             ? "bg-purple-500"
             : "";
-
   return (
     <article className="group bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden border border-pink-100 flex flex-col">
       {/* Gambar / Ilustrasi */}
-      <div className="relative overflow-hidden">
+      <div
+        className="relative overflow-hidden cursor-pointer"
+        onClick={() => onOpenQuickView(product)}
+      >
         <ProductIllustration product={product} />
         {/* Badge */}
         {product.badge && (
@@ -388,19 +494,38 @@ function ProductCard({ product, onAddToCart }) {
         <span className="absolute top-2 right-2 bg-rose-500 text-white text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full shadow">
           -{discount}%
         </span>
+        {/* Status Badge */}
+        {product.status === "ready" ? (
+          <span className="absolute top-[34px] right-2 bg-emerald-50 text-emerald-700 border border-emerald-200 text-[8px] sm:text-[9px] font-bold px-1.5 py-0.5 rounded-md shadow-sm flex items-center gap-1 backdrop-blur-sm bg-white/70">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+            </span>
+            Ready
+          </span>
+        ) : (
+          <span className="absolute top-[34px] right-2 bg-amber-50 text-amber-700 border border-amber-200 text-[8px] sm:text-[9px] font-bold px-1.5 py-0.5 rounded-md shadow-sm flex items-center gap-1 backdrop-blur-sm bg-white/70">
+            <Hourglass className="w-2.5 h-2.5 animate-[spin_4s_linear_infinite]" />
+            PO
+          </span>
+        )}
         {/* Tombol wishlist */}
         <button
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
           aria-label="Tambah ke favorit"
           className="absolute bottom-2 left-2 w-6 h-6 sm:w-7 sm:h-7 bg-white/80 backdrop-blur rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow hover:bg-pink-50"
         >
           <Heart className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-pink-400" />
         </button>
-      </div>
-
-      {/* Konten kartu */}
+      </div>      {/* Konten kartu */}
       <div className="p-2.5 sm:p-3 flex flex-col flex-1 gap-1 sm:gap-1.5">
         {/* Nama produk */}
-        <h3 className="font-semibold text-gray-800 text-xs sm:text-sm leading-tight line-clamp-1">
+        <h3
+          onClick={() => onOpenQuickView(product)}
+          className="font-semibold text-gray-800 text-xs sm:text-sm leading-tight line-clamp-1 cursor-pointer hover:text-pink-600 transition-colors"
+        >
           {product.name}
         </h3>
 
@@ -422,19 +547,20 @@ function ProductCard({ product, onAddToCart }) {
           </span>
         </div>
 
-        {/* Tombol + Keranjang */}
+        {/* Tombol Pilih Warna */}
         <button
-          id={`add-to-cart-btn-${product.id}`}
-          onClick={() => onAddToCart(product)}
+          id={`select-color-btn-${product.id}`}
+          onClick={() => onOpenQuickView(product)}
           className="mt-1 flex items-center justify-center gap-1 sm:gap-1.5 bg-pink-600 hover:bg-pink-700 active:scale-95 text-white text-[10px] sm:text-xs font-semibold py-1.5 sm:py-2 rounded-lg sm:rounded-xl transition-all duration-200 shadow hover:shadow-md w-full"
         >
-          <ShoppingCart className="w-3.5 h-3.5" />
-          <span>+ Keranjang</span>
+          <Palette className="w-3.5 h-3.5" />
+          <span>Pilih Warna</span>
         </button>
       </div>
     </article>
   );
 }
+
 
 /** Kontrol paginasi */
 function Pagination({ currentPage, totalPages, onPrev, onNext }) {
@@ -486,24 +612,31 @@ export default function App() {
   const [cart, setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  const addToCart = (product) => {
+  // State untuk Quick View Modal
+  const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
+  const [activeProduct, setActiveProduct] = useState(null);
+  const [selectedColor, setSelectedColor] = useState("");
+
+  const addToCart = (product, colorName) => {
+    const colorToUse = colorName || product.colors[0].name;
+    const cartItemId = `${product.id}-${colorToUse}`;
     setCart((prevCart) => {
-      const existingItem = prevCart.find((item) => item.id === product.id);
+      const existingItem = prevCart.find((item) => item.cartItemId === cartItemId);
       if (existingItem) {
         return prevCart.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+          item.cartItemId === cartItemId ? { ...item, quantity: item.quantity + 1 } : item
         );
       }
-      return [...prevCart, { ...product, quantity: 1 }];
+      return [...prevCart, { ...product, cartItemId, selectedColor: colorToUse, quantity: 1 }];
     });
     setIsCartOpen(true);
   };
 
-  const updateQuantity = (productId, change) => {
+  const updateQuantity = (cartItemId, change) => {
     setCart((prevCart) =>
       prevCart
         .map((item) => {
-          if (item.id === productId) {
+          if (item.cartItemId === cartItemId) {
             const newQty = item.quantity + change;
             return { ...item, quantity: newQty };
           }
@@ -513,15 +646,15 @@ export default function App() {
     );
   };
 
-  const removeFromCart = (productId) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
+  const removeFromCart = (cartItemId) => {
+    setCart((prevCart) => prevCart.filter((item) => item.cartItemId !== cartItemId));
   };
 
   const getWhatsAppCartLink = () => {
     const cartItemsText = cart
       .map(
         (item) =>
-          `- *${item.name}* (Qty: ${item.quantity}) @ ${formatRupiah(item.price)} = *${formatRupiah(item.price * item.quantity)}*`
+          `- *${item.name} - Varian ${item.selectedColor} [${item.status === "ready" ? "Ready Stock" : "Pre-Order"}]* (Qty: ${item.quantity}) @ ${formatRupiah(item.price)} = *${formatRupiah(item.price * item.quantity)}*`
       )
       .join("\n");
     const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -646,21 +779,21 @@ export default function App() {
             <BadgeCheck className="w-3.5 h-3.5" /> Authorized Reseller Resmi
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight mb-3">
-            Katalog{" "}
+            Mamiku{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-rose-400">
-              Mamiku JimsHoney
+              JimsHoney
             </span>
           </h1>
           <p className="text-sm sm:text-base text-gray-500 max-w-xl mx-auto mb-6 leading-relaxed">
             Dapatkan koleksi <strong>tas, dompet, dan jam tangan</strong> JimsHoney original
-            100% langsung dari reseller resmi. Harga terbaik, pengiriman cepat, garansi fisik.
+            100% resmi. Harga terbaik, pengiriman cepat, garansi fisik.
           </p>
 
           {/* Trust Badges */}
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5">
             {[
               { icon: ShieldCheck, text: "100% Original" },
-              { icon: Truck, text: "Gratis Ongkir Min. 200rb" },
+              { icon: Truck, text: "Gratis Ongkir Min. 250rb" },
               { icon: RotateCcw, text: "Garansi 7 Hari" },
               { icon: Package, text: "Packing Rapi & Aman" },
             ].map(({ icon: Icon, text }) => (
@@ -746,7 +879,15 @@ export default function App() {
           >
             {pagedProducts.map((product) => (
               <div key={product.id} role="listitem">
-                <ProductCard product={product} onAddToCart={addToCart} />
+                <ProductCard
+                  product={product}
+                  onAddToCart={addToCart}
+                  onOpenQuickView={(p) => {
+                    setActiveProduct(p);
+                    setSelectedColor(p.colors[0].name);
+                    setIsQuickViewOpen(true);
+                  }}
+                />
               </div>
             ))}
           </div>
@@ -795,9 +936,9 @@ export default function App() {
                 product: "Clara Watch",
                 avatar: "AM",
               },
-            ].map(({ name, loc, text, product, avatar }) => (
+            ].map(({ name, loc, text, product, avatar }, index) => (
               <article
-                key={name}
+                key={index}
                 className="bg-rose-50 border border-pink-100 rounded-2xl p-5 flex flex-col gap-3"
               >
                 <div className="flex">
@@ -946,7 +1087,7 @@ export default function App() {
                 ) : (
                   cart.map((item) => (
                     <div
-                      key={item.id}
+                      key={item.cartItemId}
                       className="flex items-center gap-3 bg-pink-50/50 p-2.5 rounded-xl border border-pink-100/50"
                     >
                       {/* Emoji / Mini Illustration */}
@@ -957,6 +1098,18 @@ export default function App() {
                       {/* Detail */}
                       <div className="flex-1 min-w-0">
                         <h3 className="text-xs font-bold text-gray-800 truncate">{item.name}</h3>
+                        <p className="text-[10px] text-gray-400 font-medium">Warna: {item.selectedColor}</p>
+                        <div className="flex items-center gap-1.5 mt-0.5">
+                          {item.status === "ready" ? (
+                            <span className="text-[8px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.2 rounded border border-emerald-100 uppercase tracking-wide">
+                              Ready
+                            </span>
+                          ) : (
+                            <span className="text-[8px] font-bold text-amber-600 bg-amber-50 px-1.5 py-0.2 rounded border border-amber-100 uppercase tracking-wide">
+                              PO
+                            </span>
+                          )}
+                        </div>
                         <p className="text-[10px] text-pink-600 font-semibold mt-0.5">
                           {formatRupiah(item.price)}
                         </p>
@@ -965,7 +1118,7 @@ export default function App() {
                       {/* Qty Controls */}
                       <div className="flex items-center gap-1.5 bg-white border border-pink-100 rounded-lg p-1">
                         <button
-                          onClick={() => updateQuantity(item.id, -1)}
+                          onClick={() => updateQuantity(item.cartItemId, -1)}
                           className="p-1 hover:bg-pink-50 text-pink-600 rounded-md transition-colors"
                           aria-label="Kurangi kuantitas"
                         >
@@ -975,7 +1128,7 @@ export default function App() {
                           {item.quantity}
                         </span>
                         <button
-                          onClick={() => updateQuantity(item.id, 1)}
+                          onClick={() => updateQuantity(item.cartItemId, 1)}
                           className="p-1 hover:bg-pink-50 text-pink-600 rounded-md transition-colors"
                           aria-label="Tambah kuantitas"
                         >
@@ -985,7 +1138,7 @@ export default function App() {
 
                       {/* Remove */}
                       <button
-                        onClick={() => removeFromCart(item.id)}
+                        onClick={() => removeFromCart(item.cartItemId)}
                         className="p-1.5 hover:bg-rose-50 text-gray-400 hover:text-rose-600 rounded-lg transition-colors flex-shrink-0"
                         aria-label="Hapus dari keranjang"
                       >
@@ -1020,6 +1173,167 @@ export default function App() {
                   </p>
                 </div>
               )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── QUICK VIEW MODAL ────────────────────────────────────────────── */}
+      {isQuickViewOpen && activeProduct && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fade-in" role="dialog" aria-modal="true">
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
+            onClick={() => setIsQuickViewOpen(false)}
+          />
+
+          {/* Modal Container */}
+          <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden max-w-3xl w-full grid grid-cols-1 md:grid-cols-12 max-h-[90vh] md:max-h-[85vh] z-10 border border-pink-100 animate-scale-in">
+            {/* Close Button */}
+            <button
+              onClick={() => setIsQuickViewOpen(false)}
+              className="absolute top-4 right-4 z-20 p-2 bg-white/80 hover:bg-pink-100 text-gray-400 hover:text-pink-600 rounded-full transition-colors shadow-sm"
+              aria-label="Tutup Detail"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* Left Panel: Image/Illustration (md:col-span-5) */}
+            <div className={`relative md:col-span-5 bg-gradient-to-br ${activeProduct.bg} flex flex-col items-center justify-center p-8 overflow-hidden min-h-[220px] md:min-h-full`}>
+              {/* Lingkaran dekorasi */}
+              <div className="absolute top-4 right-4 w-24 h-24 bg-white/30 rounded-full blur-2xl" />
+              <div className="absolute bottom-4 left-4 w-20 h-20 bg-white/20 rounded-full blur-xl" />
+
+              {/* Large Emoji */}
+              <span className="text-7xl md:text-8xl select-none drop-shadow-md transform hover:scale-110 transition-transform duration-300">
+                {activeProduct.emoji}
+              </span>
+
+              <p className="mt-4 text-[10px] font-bold text-pink-500/80 tracking-widest uppercase bg-white/85 px-3 py-1 rounded-full shadow-sm">
+                Mamiku JimsHoney
+              </p>
+
+              {/* Badge */}
+              {activeProduct.badge && (
+                <span className="absolute top-4 left-4 bg-pink-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-md">
+                  {activeProduct.badge}
+                </span>
+              )}
+            </div>
+
+            {/* Right Panel: Content (md:col-span-7) */}
+            <div className="md:col-span-7 p-6 md:p-8 flex flex-col justify-between overflow-y-auto max-h-[55vh] md:max-h-[85vh]">
+              <div>
+                {/* Category & Badge Check */}
+                <div className="flex items-center gap-1.5 text-xs font-semibold text-pink-600 mb-1">
+                  <BadgeCheck className="w-3.5 h-3.5" />
+                  <span className="uppercase tracking-wider">{activeProduct.category}</span>
+                </div>
+
+                {/* Title */}
+                <h2 className="text-xl md:text-2xl font-extrabold text-gray-800 leading-tight mb-2">
+                  {activeProduct.name}
+                </h2>
+
+                {/* Rating */}
+                <div className="mb-4">
+                  <StarRating rating={activeProduct.rating} reviews={activeProduct.reviews} />
+                </div>
+
+                {/* Price block */}
+                <div className="flex items-baseline gap-2 mb-4 bg-pink-50/50 p-3 rounded-2xl border border-pink-100/50 w-fit">
+                  <span className="text-lg md:text-xl font-black text-pink-600">
+                    {formatRupiah(activeProduct.price)}
+                  </span>
+                  <span className="text-xs text-gray-400 line-through">
+                    {formatRupiah(activeProduct.originalPrice)}
+                  </span>
+                  <span className="text-[10px] bg-rose-500 text-white font-bold px-2 py-0.5 rounded-full shadow-sm">
+                    -{getDiscount(activeProduct.price, activeProduct.originalPrice)}% OFF
+                  </span>
+                </div>
+
+                {/* Status Stok */}
+                {activeProduct.status === "ready" ? (
+                  <div className="mb-4 bg-emerald-50 border border-emerald-150 text-emerald-800 rounded-xl p-3 text-[11px] sm:text-xs font-semibold flex items-center gap-2 shadow-sm">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    <span>Ready Stock di Toko (Bisa dikirim/diambil hari ini!)</span>
+                  </div>
+                ) : (
+                  <div className="mb-4 bg-amber-50 border border-amber-150 text-amber-800 rounded-xl p-3 text-[11px] sm:text-xs font-semibold flex items-center gap-2 shadow-sm">
+                    <Hourglass className="w-3.5 h-3.5 text-amber-500 flex-shrink-0 animate-[spin_4s_linear_infinite]" />
+                    <span>Sistem PO: Estimasi Pengiriman 3 - 5 Hari Kerja</span>
+                  </div>
+                )}
+
+                {/* Description */}
+                <p className="text-xs text-gray-500 leading-relaxed mb-4">
+                  {activeProduct.description}
+                </p>
+
+                {/* Specifications: bahan, dimensi, dll */}
+                <div className="mb-5 space-y-2 border-t border-pink-50 pt-4">
+                  <h3 className="text-xs font-bold text-gray-800">Spesifikasi Produk:</h3>
+                  <div className="grid grid-cols-1 gap-1.5 text-[11px] text-gray-500">
+                    <div className="flex">
+                      <span className="font-semibold text-gray-600 w-16 flex-shrink-0">Bahan:</span>
+                      <span>{getProductSpecs(activeProduct).bahan}</span>
+                    </div>
+                    <div className="flex">
+                      <span className="font-semibold text-gray-600 w-16 flex-shrink-0">Ukuran:</span>
+                      <span>{getProductSpecs(activeProduct).dimensi}</span>
+                    </div>
+                    <div className="flex">
+                      <span className="font-semibold text-gray-600 w-16 flex-shrink-0">Fitur:</span>
+                      <span>{getProductSpecs(activeProduct).fitur}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Color Selector */}
+                <div className="mb-6">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-xs font-bold text-gray-800">Pilih Varian Warna:</span>
+                    <span className="text-xs font-semibold text-pink-600 bg-pink-50 px-2 py-0.5 rounded-md animate-pulse">
+                      {selectedColor}
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap gap-2.5">
+                    {activeProduct.colors.map((c) => (
+                      <button
+                        key={c.name}
+                        onClick={() => setSelectedColor(c.name)}
+                        className={`w-9 h-9 rounded-full border-2 transition-all duration-200 relative flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-pink-300 focus:ring-offset-1 ${selectedColor === c.name
+                          ? "border-pink-600 scale-110 shadow-md"
+                          : "border-gray-200 hover:border-pink-400 hover:scale-105"
+                          }`}
+                        style={{ backgroundColor: c.hex }}
+                        title={c.name}
+                      >
+                        {selectedColor === c.name && (
+                          <span className="w-3 h-3 bg-white rounded-full border-2 border-pink-600 shadow-sm" />
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Add to Cart button inside modal */}
+              <button
+                id="modal-add-to-cart-btn"
+                onClick={() => {
+                  addToCart(activeProduct, selectedColor);
+                  setIsQuickViewOpen(false);
+                }}
+                className="w-full flex items-center justify-center gap-2 bg-pink-600 hover:bg-pink-700 active:scale-[0.98] text-white text-xs md:text-sm font-bold py-3 px-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200"
+              >
+                <ShoppingCart className="w-4 h-4" />
+                <span>+ Tambah Varian {selectedColor} ke Keranjang</span>
+              </button>
             </div>
           </div>
         </div>
